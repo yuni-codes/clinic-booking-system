@@ -1,0 +1,14 @@
+// 공용 SCSS 변수와 mixin
+// 사용: @use "@/styles/variables" as *;
+
+$color-primary: #228be6;
+$radius-md: 8px;
+
+$breakpoint-sm: 48em;
+$breakpoint-md: 62em;
+
+@mixin mobile {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}

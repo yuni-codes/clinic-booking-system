@@ -1,0 +1,102 @@
+@use "@/styles/variables" as *;
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  display: flex;
+  gap: $space-2;
+  align-items: center;
+  margin-bottom: $space-2;
+  padding: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.req {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  color: $danger;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.choice {
+  position: relative;
+  cursor: pointer;
+}
+
+.chip {
+  display: inline-flex;
+  gap: $space-2;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: $control-md;
+  padding: 0 $space-4;
+  border: 1px solid $line-strong;
+  border-radius: $radius-md;
+  background: $surface-raised;
+  font-size: 16px;
+}
+
+.chip::before {
+  content: "";
+  flex: none;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid $line-strong;
+  border-radius: 50%;
+}
+
+.multi .chip::before {
+  border-radius: 4px;
+}
+
+.checked .chip {
+  padding: 0 calc(#{$space-4} + 1px - #{$border-selected});
+  border: $border-selected solid $selected-border;
+  background: $primary-soft;
+  color: $ink;
+  font-weight: 600;
+}
+
+.checked .chip::before {
+  border: 5px solid $primary;
+  background: $surface-raised;
+  box-shadow: 0 0 0 1px $selected-border;
+}
+
+.checked.multi .chip::before {
+  border: 1px solid $selected-border;
+  background: $primary
+    url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M4 8.2l2.6 2.6L12 5.4%27 fill=%27none%27 stroke=%27%23111418%27 stroke-width=%271.8%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E")
+    center / 14px no-repeat;
+  box-shadow: none;
+}
+
+// 키보드 포커스: 숨은 input 이 포커스를 받으면 칩에 포커스 링
+.choice:has(input:focus-visible) .chip {
+  @include focus-ring;
+}
+
+.error {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+  color: $danger;
+}

@@ -1,0 +1,127 @@
+@use "@/styles/variables" as *;
+
+.page {
+  flex: 1;
+}
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 96px;
+  align-items: center;
+  padding: $space-5 0;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-5;
+    padding: 0;
+  }
+}
+
+.pitch h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  @include mobile {
+    font-size: 26px;
+    line-height: 34px;
+  }
+}
+
+.pitch p {
+  margin: $space-3 0 0;
+  color: $ink-muted;
+  font-size: 17px;
+  line-height: 28px;
+}
+
+.feat {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin: $space-6 0 0;
+  padding: 0;
+  list-style: none;
+
+  // 모바일에서는 카드가 먼저 보이도록 부가 안내는 숨긴다.
+  @include mobile {
+    display: none;
+  }
+}
+
+.feat li {
+  display: flex;
+  gap: $space-3;
+  align-items: flex-start;
+}
+
+.feat li b {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: $radius-md;
+  background: $primary;
+  color: $on-primary;
+  font-size: 14px;
+}
+
+.feat li small {
+  display: block;
+  color: $ink-muted;
+  font-size: 15px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  padding: $space-6;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  background: $surface-raised;
+  box-shadow: $shadow-card;
+
+  @include mobile-narrow {
+    padding: $space-5 $space-4;
+  }
+}
+
+.box h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+.seg {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  color: $ink-subtle;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid $line;
+}
+
+.fine {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: $ink-muted;
+  text-align: center;
+}

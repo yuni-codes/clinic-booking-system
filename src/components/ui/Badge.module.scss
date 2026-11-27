@@ -1,0 +1,56 @@
+// Mantine Badge 의 배경·글자를 케어북 상태 토큰으로 덮어쓴다(.root.xxx 로 명시도를 높임).
+.root.root {
+  height: 24px;
+  padding: 0 10px 0 8px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  border: 0;
+  background: var(--surface-sunken);
+  color: var(--ink-muted);
+}
+
+.dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.root.neutral {
+  background: var(--surface-sunken);
+  color: var(--ink-muted);
+}
+
+.root.confirmed {
+  background: var(--info-soft);
+  color: var(--info);
+}
+
+.root.pending {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.root.done {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.root.noshow {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.root.cancelled {
+  background: var(--surface-sunken);
+  color: var(--ink-muted);
+}
+
+.root.live {
+  background: var(--accent);
+  color: var(--on-accent);
+}

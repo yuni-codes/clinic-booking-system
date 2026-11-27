@@ -1,0 +1,71 @@
+@use "@/styles/variables" as *;
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $space-2;
+
+  @include mobile-narrow {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 68px;
+  border-radius: $radius-md;
+  border: 1px solid $line-strong;
+  background: $surface-raised;
+  color: $ink;
+  cursor: pointer;
+
+  @include mobile-narrow {
+    flex: none;
+    width: 60px;
+    height: 72px;
+  }
+}
+
+.date small {
+  font-size: 13px;
+  line-height: 16px;
+  color: $ink-muted;
+  font-weight: 500;
+}
+
+.date b {
+  font-size: 20px;
+  line-height: 26px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sun small {
+  color: $danger;
+}
+
+.date[aria-pressed="true"] {
+  background: $primary;
+  border-color: $selected-border;
+  color: $on-primary;
+}
+
+.date[aria-pressed="true"] small {
+  color: $on-primary;
+}
+
+.date:disabled {
+  background: $surface-sunken;
+  border-color: $line;
+  color: $ink-subtle;
+  cursor: not-allowed;
+}
+
+.date:disabled small {
+  color: $ink-subtle;
+}

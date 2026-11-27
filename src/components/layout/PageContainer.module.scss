@@ -1,0 +1,17 @@
+@use "@/styles/variables" as *;
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(#{$content-wide} + 2 * #{$space-5});
+  margin: 0 auto;
+  padding: $space-6 $space-5 $space-8;
+
+  @include mobile {
+    padding: $space-5 $space-4 $space-6;
+  }
+}
+
+.narrow {
+  max-width: calc(#{$content-max} + 2 * #{$space-4});
+}

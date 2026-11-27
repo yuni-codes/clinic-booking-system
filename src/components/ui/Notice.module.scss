@@ -1,0 +1,45 @@
+@use "@/styles/variables" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  border: 1px solid;
+  color: $ink;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.info {
+  background: $info-soft;
+  border-color: $info;
+}
+
+.info .title {
+  color: $info;
+}
+
+.warning {
+  background: $warning-soft;
+  border-color: $warning;
+}
+
+.warning .title {
+  color: $warning;
+}
+
+.danger {
+  background: $danger-soft;
+  border-color: $danger;
+}
+
+.danger .title {
+  color: $danger;
+}

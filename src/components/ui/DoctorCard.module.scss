@@ -1,0 +1,110 @@
+@use "@/styles/variables" as *;
+
+.card {
+  display: flex;
+  gap: $space-4;
+  align-items: flex-start;
+  width: 100%;
+  padding: $space-4;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  background: $surface-raised;
+  box-shadow: $shadow-card;
+  color: $ink;
+  text-align: left;
+
+  @include mobile-narrow {
+    gap: $space-3;
+  }
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+.selectable[aria-pressed="true"] {
+  border: $border-selected solid $selected-border;
+  padding: calc(#{$space-4} + 1px - #{$border-selected});
+  background: $primary-soft;
+}
+
+.avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-lg;
+  background: $surface-sunken;
+  color: $ink;
+  font-size: 20px;
+  font-weight: 700;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include mobile-narrow {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-md;
+    font-size: 18px;
+  }
+}
+
+.selectable[aria-pressed="true"] .avatar {
+  background: $surface-raised;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.meta {
+  font-size: 15px;
+  line-height: 22px;
+  color: $ink-muted;
+}
+
+.days {
+  display: flex;
+  gap: 4px;
+  margin-top: $space-2;
+}
+
+.days span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: $radius-sm;
+  background: $surface-sunken;
+  color: $ink-subtle;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+// 진료 요일 칩: 노랑 면 + on-primary 글자
+.days span.on {
+  background: $primary;
+  color: $on-primary;
+  box-shadow: inset 0 0 0 1px rgba(17, 20, 24, 0.12);
+}
+
+.selectable[aria-pressed="true"] .days span:not(.on) {
+  background: $surface-raised;
+}

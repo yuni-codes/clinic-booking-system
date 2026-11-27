@@ -1,0 +1,70 @@
+@use "@/styles/variables" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.steps {
+  display: flex;
+  gap: $space-2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: $space-2;
+  min-width: 0;
+  color: $ink-muted;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.steps li::before {
+  content: "";
+  height: 4px;
+  border-radius: $radius-pill;
+  background: $line;
+}
+
+.steps li.done::before,
+.steps li.current::before {
+  background: $primary;
+}
+
+.steps li.current {
+  color: $ink;
+  font-weight: 700;
+}
+
+.mobile {
+  display: none;
+  margin: 0;
+  color: $ink;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+@include mobile-narrow {
+  // 스크린리더에는 단계 이름이 그대로 읽히도록 시각적으로만 숨긴다.
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .mobile {
+    display: block;
+  }
+}

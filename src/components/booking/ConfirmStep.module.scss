@@ -1,0 +1,51 @@
+@use "@/styles/variables" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  padding: $space-5;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  background: $surface-raised;
+  box-shadow: $shadow-card;
+
+  @include mobile-narrow {
+    padding: $space-4;
+  }
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin: 0;
+}
+
+.list div {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: $space-3;
+}
+
+.list dt {
+  color: $ink-muted;
+}
+
+.list dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.link {
+  color: $info;
+  font-weight: 600;
+  text-decoration: underline;
+}

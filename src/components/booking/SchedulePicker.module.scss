@@ -1,0 +1,47 @@
+@use "@/styles/variables" as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  min-width: 0;
+  padding: $space-5;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  background: $surface-raised;
+  box-shadow: $shadow-card;
+
+  @include mobile-narrow {
+    padding: $space-4;
+  }
+}
+
+.panel h2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: $space-1 $space-3;
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.panel h2 span {
+  font-size: 15px;
+  font-weight: 400;
+  color: $ink-muted;
+}
+
+.muted {
+  margin: 0;
+  color: $ink-muted;
+}
+
+.fine {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: $ink-muted;
+}

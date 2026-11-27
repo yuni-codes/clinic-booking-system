@@ -1,0 +1,65 @@
+@use "@/styles/variables" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-4 $space-5;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  background: $surface-raised;
+  box-shadow: $shadow-card;
+
+  @include mobile-narrow {
+    padding: $space-4;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-3;
+}
+
+.when {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.cancelled .when {
+  color: $ink-muted;
+}
+
+.who {
+  font-size: 16px;
+  line-height: 24px;
+  color: $ink-muted;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-3;
+  padding-top: $space-3;
+  border-top: 1px solid $line;
+  font-size: 15px;
+  line-height: 22px;
+  color: $ink-muted;
+
+  @include mobile-narrow {
+    flex-wrap: wrap;
+  }
+}
+
+.foot > span {
+  flex: 1;
+  min-width: 0;
+}
+
+.foot > :not(span) {
+  flex: none;
+}

@@ -1,14 +1,90 @@
-// 공용 SCSS 변수와 mixin
+// 공용 SCSS 변수와 mixin. 값의 출처는 design-system/project/tokens.json.
 // 사용: @use "@/styles/variables" as *;
+//
+// 색·그림자는 라이트/다크가 다르므로 SCSS 상수가 아니라 CSS 변수를 참조한다.
+// 실제 값은 src/theme.ts 의 cssVariablesResolver 가 :root 에 주입한다.
 
-$color-primary: #228be6;
-$radius-md: 8px;
+// --- 색 (CSS 변수) ---
+$surface: var(--surface);
+$surface-raised: var(--surface-raised);
+$surface-sunken: var(--surface-sunken);
+$line: var(--line);
+$line-strong: var(--line-strong);
+$ink: var(--ink);
+$ink-muted: var(--ink-muted);
+$ink-subtle: var(--ink-subtle);
+$primary: var(--primary);
+$primary-hover: var(--primary-hover);
+$primary-strong: var(--primary-strong);
+$primary-soft: var(--primary-soft);
+$on-primary: var(--on-primary);
+$selected-border: var(--selected-border);
+$accent: var(--accent);
+$on-accent: var(--on-accent);
+$success: var(--success);
+$success-soft: var(--success-soft);
+$info: var(--info);
+$info-soft: var(--info-soft);
+$warning: var(--warning);
+$warning-soft: var(--warning-soft);
+$danger: var(--danger);
+$on-danger: var(--on-danger);
+$danger-soft: var(--danger-soft);
+$focus: var(--focus);
 
+$shadow-card: var(--shadow-card);
+$shadow-dialog: var(--shadow-dialog);
+
+// --- 간격 (4px 단위) ---
+$space-1: var(--space-1); // 4px
+$space-2: var(--space-2); // 8px
+$space-3: var(--space-3); // 12px
+$space-4: var(--space-4); // 16px
+$space-5: var(--space-5); // 24px
+$space-6: var(--space-6); // 32px
+$space-8: var(--space-8); // 48px
+
+// --- 모서리 ---
+$radius-sm: var(--radius-sm); // 6px
+$radius-md: var(--radius-md); // 10px
+$radius-lg: var(--radius-lg); // 16px
+$radius-pill: var(--radius-pill); // 999px
+
+// --- 크기 ---
+$control-md: var(--control-md); // 44px
+$control-lg: var(--control-lg); // 52px
+$content-max: var(--content-max); // 640px
+$content-wide: var(--content-wide); // 1200px
+$sidebar: var(--sidebar); // 248px
+$border-selected: var(--border-selected); // 1.5px
+
+$font-sans: var(--font-sans);
+
+// --- 하위 호환 (기존 코드용) ---
+// 주의: primary 노랑은 흰 바탕에서 글자·단독 테두리로 쓰지 않는다 (대비 1.4:1).
+$color-primary: $primary;
+
+// --- 브레이크포인트 / mixin ---
+// $breakpoint-* 는 sass 가 em 을 미디어쿼리에서 그대로 쓰므로 CSS 변수로 대체할 수 없다.
 $breakpoint-sm: 48em;
 $breakpoint-md: 62em;
+// 케어북 모바일 기준은 480px 이하 (README 모바일 항목)
+$breakpoint-mobile: 480px;
 
 @mixin mobile {
   @media (max-width: $breakpoint-sm) {
     @content;
   }
+}
+
+@mixin mobile-narrow {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+// 포커스 링: 2px 실선 + 2px 간격, --focus 색
+@mixin focus-ring {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }

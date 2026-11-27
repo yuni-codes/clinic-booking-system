@@ -1,0 +1,205 @@
+@use "@/styles/variables" as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  // 하단 고정 바에 가리지 않도록 여백
+  padding-bottom: 148px;
+
+  @include mobile {
+    gap: $space-4;
+  }
+}
+
+.hasAside {
+  @media (min-width: 1024px) {
+    padding-bottom: $space-8;
+  }
+}
+
+.stepper {
+  max-width: 560px;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  @include mobile {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.intro p {
+  margin: $space-1 0 0;
+  color: $ink-muted;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  min-width: 0;
+
+  @include mobile {
+    gap: $space-4;
+  }
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: $space-5;
+  align-items: start;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.aside {
+  position: sticky;
+  top: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  padding: $space-5;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  background: $surface-raised;
+  box-shadow: $shadow-card;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.aside h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.aside dl {
+  display: grid;
+  gap: $space-2;
+  margin: 0;
+  font-size: 16px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: $space-3;
+}
+
+.aside dt {
+  color: $ink-muted;
+}
+
+.aside dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.none {
+  color: $ink-subtle;
+  font-weight: 500 !important;
+}
+
+// --- 하단 고정 바 ---
+.bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: $surface-raised;
+  border-top: 1px solid $line;
+  box-shadow: $shadow-dialog;
+}
+
+.barMobileOnly {
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.barIn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  box-sizing: border-box;
+  max-width: calc(#{$content-wide} + 2 * #{$space-5});
+  min-height: 88px;
+  margin: 0 auto;
+  padding: $space-3 $space-5;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $space-2;
+    min-height: 0;
+    padding: $space-3 $space-4 calc(#{$space-3} + env(safe-area-inset-bottom));
+  }
+}
+
+.oneLine {
+  display: none;
+  margin: 0;
+  overflow: hidden;
+  color: $ink;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.pairs {
+  display: flex;
+  gap: $space-6;
+  margin: 0;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.pairs div {
+  display: flex;
+  flex-direction: column;
+}
+
+.pairs dt {
+  color: $ink-muted;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.pairs dd {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.barButton {
+  min-width: 240px;
+
+  @include mobile {
+    min-width: 0;
+  }
+}

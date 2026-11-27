@@ -1,0 +1,28 @@
+@use "@/styles/variables" as *;
+
+.seg {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: $radius-pill;
+  background: $surface-sunken;
+  max-width: 100%;
+}
+
+// 높이는 터치 최소 크기(control-md 44px)에 맞춘다.
+.button {
+  height: $control-md;
+  padding: 0 $space-4;
+  border-radius: $radius-pill;
+  color: $ink-muted;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.button[aria-pressed="true"] {
+  background: $surface-raised;
+  color: $ink;
+  box-shadow: $shadow-card;
+}

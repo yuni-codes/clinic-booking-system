@@ -1,0 +1,26 @@
+.root {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.danger:hover:not(:disabled):not([data-disabled]) {
+  filter: brightness(0.92);
+}
+
+// 로딩 중에도 너비가 변하지 않도록 원래 라벨을 보이지 않게 두고 자리를 지킨다.
+.labels {
+  display: inline-grid;
+  place-items: center;
+}
+
+.labels > * {
+  grid-area: 1 / 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.loadingLabel {
+  white-space: nowrap;
+}

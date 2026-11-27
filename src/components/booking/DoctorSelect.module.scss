@@ -1,0 +1,76 @@
+@use "@/styles/variables" as *;
+
+.cols {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  gap: $space-5;
+  align-items: start;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  min-width: 0;
+  padding: $space-5;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  background: $surface-raised;
+  box-shadow: $shadow-card;
+
+  @include mobile-narrow {
+    padding: $space-4;
+  }
+}
+
+.panel h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: $space-3;
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.panel h2 span {
+  font-size: 15px;
+  font-weight: 400;
+  color: $ink-muted;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-2 $space-3;
+}
+
+.count {
+  font-size: 15px;
+  color: $ink-muted;
+}
+
+.doctors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3;
+
+  @media (max-width: 1279px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.empty {
+  padding: $space-6 $space-4;
+  border: 1px dashed $line-strong;
+  border-radius: $radius-lg;
+  color: $ink-muted;
+  text-align: center;
+}
